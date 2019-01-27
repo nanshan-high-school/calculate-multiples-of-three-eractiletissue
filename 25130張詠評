@@ -1,0 +1,52 @@
+#include <iostream>
+#include <sstream>
+
+
+using namespace std;
+int flag1=0;
+int main(){
+
+  string str;
+  cout<<"要乘的數";
+  cin>>str;
+  
+  
+  long int size = str.length();
+  cout << "size: " << size << endl;
+  long int num;
+
+  for(int size_i=0; size_i<size; size_i++){
+    cout << "size_i: " << size_i << endl;
+    string str1 = str.assign(str, size_i, size);
+    cout<<"str1: " << str1 << endl;
+    long int num1;
+    istringstream function1(str1);    
+    function1>>num1;
+    cout<<"number: "<<num1<<endl;
+    stringstream tmp1;
+    tmp1<<num1;
+    string str2=tmp1.str();
+    cout<<"str2: " << str2 << endl;
+    long int length1=str2.size();
+    size_i = length1;
+    cout<<"str1 size: " << str1.length() << endl;
+    cout << "=======" << endl;
+    str1.clear();
+    if(num1 % 3==0){
+      flag1=1;
+      cout<<"是三的倍數";
+      break;
+    }
+
+    if(str1.length()<=length1){
+      break;
+    }
+
+  }
+
+  if(flag1 ==0){
+    cout<<"不是三的倍數";
+  }
+
+  return 0;
+}
